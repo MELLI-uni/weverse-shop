@@ -1,0 +1,1 @@
+console.log('Hello ffrom app js')
