@@ -31,7 +31,7 @@ function authController() {
                         return next(err)
                     }
 
-                    return res.redirect(_getRedirectUrl(req))
+                    return res.redirect('/')
                 })
             })(req, res, next)
         },
@@ -57,7 +57,7 @@ function authController() {
                     req.flash('error', 'Email already taken')
 
                     req.flash('name', name)
-                    req.flahs('email', email)
+                    req.flash('email', email)
 
                     return res.redirect('/register')
                 }
@@ -77,6 +77,11 @@ function authController() {
                 req.flash('error', 'Something went wrong')
                 return res.redirect('/register')
             })
+        },
+
+        logout(req, res){
+            req.logout()
+            return res.redirect('/login')
         }
     }
 }

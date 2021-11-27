@@ -13,6 +13,7 @@ const flash = require('express-flash')
 const MongoDbStore = require('connect-mongo')(session)
 
 const passport = require('passport')
+const LocalStrategy = require('passport-local').Strategy
 
 // Database connection
 const url = 'mongodb://localhost/weverse-shop';
@@ -25,12 +26,6 @@ connection
     .on('error', () => {
         console.log('Conenction failed...');
 })
-
-// Passport config
-// const passportInit = require('./app/config/passport');
-// passportInit(passport);
-// app.use(passport.initialize());
-// app.use(passport.session());
 
 // Session store
 let mongoStore = new MongoDbStore({
@@ -48,6 +43,12 @@ app.use(session({
     cookie: { maxAge: 1000 * 15 }
 }))
 
+// Passport config
+const passportInit = require('./app/config/passport');
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(flash())
 
 // Assets
@@ -58,6 +59,7 @@ app.use(express.json())
 
 app.use((req, res, next) => {
     res.locals.session = req.session
+    res.locals.user = req.user
     next()
 })
 
