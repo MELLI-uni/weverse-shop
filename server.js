@@ -12,6 +12,8 @@ const session = require('express-session')
 const flash = require('express-flash')
 const MongoDbStore = require('connect-mongo')(session)
 
+const passport = require('passport')
+
 // Database connection
 const url = 'mongodb://localhost/weverse-shop';
 mongoose.connect(url);
@@ -23,6 +25,12 @@ connection
     .on('error', () => {
         console.log('Conenction failed...');
 })
+
+// Passport config
+// const passportInit = require('./app/config/passport');
+// passportInit(passport);
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Session store
 let mongoStore = new MongoDbStore({
@@ -45,7 +53,7 @@ app.use(flash())
 // Assets
 app.use(express.static('public'))
 //app.use(favicon(__dirname, 'public/favicon.ico'))
-
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 app.use((req, res, next) => {
