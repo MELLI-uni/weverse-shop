@@ -320,11 +320,11 @@ nav li a:hover {
 }
 
 section.hero {
-  background: #dbdce0;
+  background: #fff;
 }
 
 .size {
-  background: #dbdce0;
+  background: #fff;
 }
 
 .add-to-cart {
@@ -353,7 +353,7 @@ section.hero {
 }
 
 section.cart {
-  background: #dbdce0;
+  background: #fff;
 }
 
 section.cart .amount {
@@ -361,7 +361,7 @@ section.cart .amount {
 }
 
 section.login {
-  background: #dbdce0;
+  background: #fff;
   min-height: calc(100vh - 86px);
 }
 
@@ -377,5 +377,13 @@ section.login a:hover {
   border-radius: 50px !important;
   padding-left: 8px !important;
   background: #0be6c0 !important;
+}
+
+a.link {
+  color: #0be6c0;
+}
+
+a.link:hover {
+  color: #0bcaa9;
 }
 

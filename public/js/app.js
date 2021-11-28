@@ -5627,6 +5627,13 @@ addToCart.forEach(function (btn) {
     updateCart(merch);
   });
 });
+var alertMsg = document.querySelector('#success-alert');
+
+if (alertMsg) {
+  setTimeout(function () {
+    alertMsg.remove();
+  }, 2000);
+}
 
 /***/ }),
 

@@ -1,0 +1,31 @@
+Updated: 11/27/2021
+
+[-] Admin
+    [-] Set certain user(s) to admin
+    [-] Admin view table for 'fan' orders
+    [-] Admin can upload new announcements
+        [-] Easy to use interface
+        [-] Records Time DD/MM/YYYY or MM/DD/YYYY
+    [-] Admin can add item
+        [-] Easy interface (possibly blog like type where admin can easily add 'categories')
+            [-] Categories for items?????
+[-] Announcements
+    [+] Design space in home.ejs
+    [+] Design schema
+    [-] Indiv page with object id as extension
+    [-] Auto most recent three or five on display on home
+    [-] Announcement slot on homepage
+[-] Order tracker
+
+Want To Do:
+[-] Select different artists (but how?????)
+    [-] Drop down menu to select different artists
+    [-] Admins can take care of multiple artist pages
+[-] Different currency (won & yen)
+[-] Limited number of purchase for some people
+    [-] Membership status
+[-] Prettier log-in thing (maybe maybe maybe)
+[-] Recently Viewed section
+[-] 'Super' admin (aka 'Weverse')
+    [-] Announcements by weverse to all channels
+    [-] Can indicate who is 'admin'

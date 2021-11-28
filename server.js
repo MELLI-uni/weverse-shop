@@ -24,7 +24,7 @@ connection
         console.log('Database connected...');
     })
     .on('error', () => {
-        console.log('Conenction failed...');
+        console.log('Connection failed...');
 })
 
 // Session store
