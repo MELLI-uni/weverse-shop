@@ -387,3 +387,11 @@ a.link:hover {
   color: #0bcaa9;
 }
 
+a.announce {
+  color: #202328;
+}
+
+a.announce:hover {
+  color: #0be6c0;
+}
+

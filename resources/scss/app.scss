@@ -82,3 +82,10 @@ a.link {
         color: $primary-hover;
     }
 }
+
+a.announce {
+    color: $dark;
+    &:hover {
+        color: $primary;
+    }
+}
