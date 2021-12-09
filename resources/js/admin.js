@@ -49,8 +49,8 @@ export function initAdmin(socket) {
                                     Placed</option>
                                 <option value="confirmed" ${ order.status === 'confirmed' ? 'selected' : '' }>
                                     Confirmed</option>
-                                <option value="prepared" ${ order.status === 'prepared' ? 'selected' : '' }>
-                                    Prepared</option>
+                                <option value="printed" ${ order.status === 'printed' ? 'selected' : '' }>
+                                    Printed</option>
                                 <option value="delivered" ${ order.status === 'delivered' ? 'selected' : '' }>
                                     Delivered
                                 </option>

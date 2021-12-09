@@ -11,36 +11,46 @@
     </div>
 </section>
 
-<section class="menu container mx-auto py-8">
+<section class="product container mx-auto py-8">
     <h1 class="text-xl font-bold mb-8">Products</h1>
     <div class="grid grid-cols-4 gap-x-12 gap-y-16">
-        <% merch.forEach(function(merch) { %>
+        <% for (let i = 0; i < 8; i++) { %>
+            <a class="product" href="/products/<%= merch[i]._id %>">
+                <div class="w-64">
+                    <img class="h-40 mb-4 mx-auto" src="/img/<%= merch[i].image %>" alt="">
+                    <div class="text-center">
+                        <h2 class="font-bold text-lg"><%= merch[i].name %></h2>
+                        <div class="flex items-center justify-around mt-1">
+                            <span class="text-lg">$<%= merch[i].price %></span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+        <!-- <% merch.forEach(function(merch) { %>
+        <a class="product" href="/products/<%= merch._id %>">
         <div class="w-64">
             <img class="h-40 mb-4 mx-auto" src="/img/<%= merch.image %>" alt="">
             <div class="text-center">
-                <h2 class="mb-4 text-lg"><%= merch.name %></h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= merch.size %></span>
-                <div class="flex items-center justify-around mt-6">
-                    <span class="font-bold text-lg">$<%= merch.price %></span>
-                    <button data-merch="<%= JSON.stringify(merch) %>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-4">Add</span>
-                    </button>
+                <h2 class="font-bold text-lg"><%= merch.name %></h2>
+                <div class="flex items-center justify-around mt-1">
+                    <span class="text-lg">$<%= merch.price %></span>
                 </div>
             </div>
         </div>
-        <% }) %>
+        </a>
+        <% }) %> -->
     </div>
 </section>
 
 <section class="announcement container mx-auto py-8">
     <h1 class="text-xl font-bold mb-8">Announcements</h1>
-        <% announcement.forEach(function(announcement) { %>
-            <a class="announce" href="/">
+        <% for (let i = 0; i < 3; i++) { %>
+            <a class="announce" href="/announcements/<%= announcement[i]._id %>">
             <div class="text-left mb-6">
-                <h2 class="text-lg"><%= announcement.title %></h2>
-                <h6 class="ml-4"><%= moment(announcement.createdAt, 'DD/MM/YYYY').format('LL') %></span>
+                <h2 class="text-lg"><%= announcement[i].title %></h2>
+                <h6 class><%= moment(announcement[i].createdAt).format("MM.DD.YYYY") %></span>
             </div>
             </a>
-        <% }) %>
+        <% } %>
 </section>

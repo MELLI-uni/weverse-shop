@@ -1,0 +1,58 @@
+<section class = "product py-4">
+    <div class="container mx-auto flex items-center">
+        <h1 class="font-bold text-2xl py-4">Products</h1>
+    </div>
+
+    <div class="container mx-auto flex items-center justify-between">
+        <div class="picture w-1/2">
+            <img class="w-full mb-4 mx-auto" src="/img/hero-temp.png" alt="">
+            <!-- /img/<%= product.image %> -->
+        </div>
+
+        <div class="information-area w-1/2 mx-auto items-center">
+            <div class="basic-info mx-auto">
+                <h1 class="text-3xl font-bold pl-4"><%= product.name %></h1>
+                <h6 class="text-xl pl-4 py-4">$<%= product.price %></h6>
+            </div>
+
+            <div class="information mx-auto pl-4">
+                <h2 class="text-lg text-gray-400">Information</h2>
+                <ul class="list-disc list-inside">
+                    <li class="text-green-300 p-1">
+                        <span class="text-gray-400">
+                            The TREASURE MAKER 1ST MEMBERSHIP KIT (Membership Kit) is available for purchase to TREASURE MAKER MEMBERSHIP holders, up to one Membership Kit on sale on Weverse shop per ID, once during the Membership period.
+                        </span>
+                    </li>
+                    <!-- <li class="p-2">The Membership Kit can only be purchased through the Weverse Shop (Global, JAPAN) you have purchased your membership from.</li> -->
+                </ul>
+            </div>
+            
+            <div class="add-button mx-auto items-center py-20 pl-4">
+                <button data-merch="<%= JSON.stringify(product) %>" class="add-to-cart py-7 px-20 flex items-center font-bold text-xl">
+                    <span>+</span>
+                    <span class="ml-4">Add To Cart</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto flex text-left py-4">
+        <h3 class="text-lg text-bold py-2">Description</h3>
+    </div>
+
+    <div class="text-center">
+        <span>This will be the description</span>
+    </div>
+
+    <div class="container mx-auto flex text-left py-4">
+        <h3 class="text-lg text-bold py-2">Shipping</h3>
+    </div>
+
+    <div class="container mx-auto flex text-left py-4">
+        <h3 class="text-lg text-bold py-2">Information</h3>
+    </div>
+
+    <div class="container mx-auto flex text-left py-4">
+        <h3 class="text-lg text-bold py-2">Please Note</h3>
+    </div>
+</section>

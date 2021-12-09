@@ -1,17 +1,13 @@
-Updated: 11/27/2021
+Updated: 12/08/2021
 
 [-] Admin
-    [-] Set certain user(s) to admin
     [-] Admin view table for 'fan' orders
     [-] Admin can upload new announcements
         [-] Easy to use interface
-        [-] Records Time DD/MM/YYYY or MM/DD/YYYY
     [-] Admin can add item
         [-] Easy interface (possibly blog like type where admin can easily add 'categories')
             [-] Categories for items?????
 [-] Announcements
-    [+] Design space in home.ejs
-    [+] Design schema
     [-] Indiv page with object id as extension
     [-] Auto most recent three or five on display on home
     [-] Announcement slot on homepage

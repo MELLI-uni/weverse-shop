@@ -6,7 +6,7 @@ function homeController() {
     return {
         async index(req, res) {
             const merch = await Product.find()
-            const announcement = await Announcement.find()
+            const announcement = await Announcement.find().sort( { createdAt: -1 } )
             return res.render('home', { merch: merch, announcement: announcement, moment: moment })
         }
     }

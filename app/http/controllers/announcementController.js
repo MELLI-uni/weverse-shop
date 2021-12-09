@@ -6,13 +6,19 @@ const moment = require('moment')
 function announcementController() {
     return {
         async index(req, res) {
-            const announcement = await Announcement.find()
-            return res.render('home', { announcement: announcement, moment: moment })
+            const announcement = await Announcement.find().sort( { createdAt: -1 } )
+            return res.render('announcements', { announcement: announcement, moment: moment })
         },
 
         async show(req, res) {
             const announcement = await Announcement.findById(req.params.id)
-            return res.render('singleAnnouncement', { announcement: announcement })
+            // announcement.content = announcement.content.replace(/\n/g, "<br>");
+            return res.render('singleAnnouncement', { announcement: announcement, moment: moment })
+        },
+
+        async testIndex(req, res) {
+            const announcement = await Announcement.find().sort( { createdAt: -1 } )
+            return res.render('admin/updateAnnouncement', { announcement: announcement, moment: moment })
         }
     }
 }
