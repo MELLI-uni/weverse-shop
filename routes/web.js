@@ -35,7 +35,8 @@ function initRoutes(app) {
 
     app.get('/announcements', announcementController().index)
     app.get('/announcements/:id', announcementController().show)
-    app.get('/announcementsagain', announcementController().testIndex)
+    app.get('/addannouncement', announcementController().addAnnouncePage)
+    app.post('/addannouncement', announcementController().addAnnounce)
 
     app.get('/admin/orders', adminOrderController().index)
     app.post('/admin/order/status', statusController().update)

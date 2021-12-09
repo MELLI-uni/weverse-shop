@@ -8,11 +8,11 @@
     </div> -->
 
     <div class="container mx-auto flex items-left">
-        <h2 class="font-bold"><%= announcement.title %></h2>
+        <h2 class="text-lg font-bold"><%= announcement.title %></h2>
     </div>
 
     <div class="container mx-auto flex items-left">
-        <h6 class="text-gray-500"><%= moment(announcement.createdAt, 'DD/MM/YYYY').format('LL') %></h2>
+        <h6 class="text-sm text-gray-500"><%= moment(announcement.createdAt, 'DD/MM/YYYY').format('LL') %></h2>
     </div>
 
     <div class="container mx-auto flex items-left py-4">
@@ -29,7 +29,7 @@
             Thank you for your patience.
             
             All things for Fans, Weverse Shop. -->
-            <%- announcement.content.replace(/\n/g, '<br/>') %>
+            <%- announcement.content.replace(/[<]/g, '&lt').replace(/[>]/g, '&gt').replace(/\n/g, '<br>')%>
         </span>
         <!-- <span>
             <pr>

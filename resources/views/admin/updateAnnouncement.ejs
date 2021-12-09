@@ -2,25 +2,37 @@
     <!-- <div class="container mx-auto flex items-center">
         <h1 class="font-bold text-2xl py-4">Update Announcements</h1>
     </div> -->
-
-    <div class="mb-4">
-        <input 
-            name="title"
-            class="appearance-none w-full py-2 text-gray-700 text-5xl leading-tight" 
-            id="username" type="text" placeholder="Title">
-    </div>
-
-    <div class="multiline">
-        <ejs-textbox [multiline]='true' floatLabelType='Auto' placeholder='Enter your address' ></ejs-textbox>
-       </div>
-
-    <div class="mb-4">
-        <div class="multiline">
-        <ejs-textbox [multiline]='true' floatLabelType='Auto' placeholder='Enter your address' ></ejs-textbox>
+    <form action="/addannouncement" method="POST">
+        <div class="mb-2">
+            <input 
+                name="title"
+                class="appearance-none w-full py-2 text-gray-700 text-5xl leading-tight" 
+                id="username" type="text" placeholder="Title">
         </div>
-        <!-- <input 
-            name="content"
-            class="appearance-none w-full py-2 px-2 text-gray-700 text-xl leading-tight" 
-            id="username" type="multiline" placeholder="Content"> -->
-    </div>
+
+        <hr class="solid">
+
+        <div class="mb-4 py-2">
+            <!-- <input 
+                name="content"
+                class="appearance-none w-full py-2 px-2 text-gray-700 text-xl leading-tight" 
+                id="username" type="textarea" placeholder="Content"> -->
+            
+            <!-- <textarea name="content" cols="40" rows="full"></textarea> -->
+
+            <textarea
+                name="content"
+                class="appearance-non w-full py-2 px-2 text-gray-700 text-xl leading leading-tight"
+                placeholder="Content"
+                cols="20" rows="20"></textarea>
+        </div>
+
+        <div class="mb-4 mx-auto flex items-center">
+            <button 
+                class="btn-primary rounded-full text-white font-bold py-2 px-4" 
+                type="submit">
+                Post
+            </button>
+        </div>
+    </form>
 </section>
