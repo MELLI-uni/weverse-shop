@@ -1,0 +1,51 @@
+<section class = "product container mx-auto py-8">
+    <form action="/addproduct" method="POST">
+        <div class="mb-2">
+            <input 
+                name="name"
+                class="appearance-none w-full py-2 text-gray-700 text-xl leading-tight" 
+                id="name" type="text" placeholder="Product Name">
+        </div>
+
+        <!-- <hr class="solid"> -->
+
+        <div class="mb-2 py-2">
+            <input 
+                name="image"
+                class="appearance-none w-full py-2 text-gray-700 text-xl leading-tight" 
+                id="iamge" type="text" placeholder="Image Name">
+        </div>
+
+        <div class="mb-2 py-2">
+            <input 
+                name="price"
+                class="appearance-none w-full py-2 text-gray-700 text-xl leading-tight" 
+                id="price" type="text" placeholder="Price">
+        </div>
+
+        <!-- <hr class="solid"> -->
+
+        <div class="mb-2 py-2">
+            <input 
+                name="description"
+                class="appearance-none w-full py-2 text-gray-700 text-xl leading-tight" 
+                id="description" type="text" placeholder="Description Image Name">
+        </div>
+
+        <!-- <div class="mb-4 py-2">
+            <textarea
+                name="content"
+                class="appearance-non w-full py-2 px-2 text-gray-700 text-xl leading leading-tight"
+                placeholder="Content"
+                cols="20" rows="20"></textarea>
+        </div> -->
+
+        <div class="mb-4 mx-auto flex items-center">
+            <button 
+                class="btn-primary rounded-full text-white font-bold py-2 px-4" 
+                type="submit">
+                Add
+            </button>
+        </div>
+    </form>
+</section>

@@ -9,7 +9,7 @@
             <!-- /img/<%= product.image %> -->
         </div>
 
-        <div class="information-area w-1/2 mx-auto items-center">
+        <div class="information-area w-1/2 h-full mx-auto relative">
             <div class="basic-info mx-auto">
                 <h1 class="text-3xl font-bold pl-4"><%= product.name %></h1>
                 <h6 class="text-xl pl-4 py-4">$<%= product.price.toFixed(2) %></h6>
@@ -29,10 +29,10 @@
                 </ul>
             </div>
             
-            <div class="add-button mx-auto items-center py-20 pl-4">
-                <button data-merch="<%= JSON.stringify(product) %>" class="add-to-cart py-7 px-20 flex items-center font-bold text-xl">
-                    <span>+</span>
-                    <span class="ml-4">Add To Cart</span>
+            <div class="add-button mx-auto flex pl-4 py-20">
+                <button data-merch="<%= JSON.stringify(product) %>" class="add-to-cart flex py-7 w-full font-bold text-xl absolute bottom-0">
+                        <!-- <span>+</span> -->
+                        <span class="ml-80">Add To Cart</span>
                 </button>
             </div>
         </div>

@@ -1,6 +1,14 @@
 <section class="product container mx-auto py-8">
-    <h1 class="text-2xl font-bold mb-8">Products</h1>
-    <div class="grid grid-cols-4 gap-x-12 gap-y-16">
+    <div class="flex justify-between">
+        <h1 class="text-2xl font-bold mb-8">Products</h1>
+        <% if(user.role === 'admin') { %>
+            <button class="btn-primary rounded-full text-white font-bold py-2 px-4 absolute right-16">
+                <a href="/"><span>+ Add New Product</span></a>
+            </button>
+        <% } %>
+    </div>
+    
+    <div class="grid grid-cols-4 gap-x-16 gap-y-16 content-evenly">
         <% product.forEach(function(product) { %>
             <a class="product" href="/products/<%= product._id %>">
             <div class="w-64">
@@ -8,7 +16,7 @@
                 <div class="text-center">
                     <h2 class="font-bold text-lg"><%= product.name %></h2>
                     <div class="flex items-center justify-around mt-1">
-                        <span class="text-lg">$<%= product.price %></span>
+                        <span class="text-lg">$<%= product.price.toFixed(2) %></span>
                         <!-- <button data-product="<%= JSON.stringify(product) %>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                             <span>+</span>
                             <span class="ml-4">Add</span>

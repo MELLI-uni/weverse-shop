@@ -344,6 +344,17 @@ section.hero {
   outline: none;
 }
 
+.add-announcement {
+  background: #0be6c0;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  right: 150px;
+}
+
+.add-announcement:hover {
+  background: #0bcaa9;
+}
+
 .btn-primary {
   background: #0be6c0;
   transition: all 0.3s ease-in-out;

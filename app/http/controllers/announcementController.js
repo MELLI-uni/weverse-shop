@@ -42,7 +42,7 @@ function announcementController() {
                 req.flash('error', 'Something went wrong')
                 return res.redirect('/addannouncement')
             })
-        },
+        }
     }
 }
 

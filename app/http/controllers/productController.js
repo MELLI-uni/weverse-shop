@@ -12,6 +12,38 @@ function productController() {
             const product = await Product.findById(req.params.id)
             console.log(product)
             return res.render('singleProduct', { product: product })
+        },
+
+        addProductPage(req, res) {
+            res.render('admin/addProduct')
+        },
+
+        async addProduct(req, res) {
+            const { name, image, price, description }   = req.body
+            // Validate request 
+            if(!name || !image || !price || !description) {
+                req.flash('error', 'All fields are required')
+                req.flash('name', name)
+                req.flash('image', image)
+                req.flash('price', price)
+                req.flash('description', descriptio)
+                return res.redirect('/addProduct')
+            }
+
+            const product = new Product({
+                name,
+                image,
+                price,
+                description
+            })
+
+            product.save().then((product) => {
+                // Login
+                return res.redirect('/products')
+            }).catch(err => {
+                req.flash('error', 'Something went wrong')
+                return res.redirect('/addproduct')
+            })
         }
     }
 }

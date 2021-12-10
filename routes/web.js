@@ -28,6 +28,8 @@ function initRoutes(app) {
 
     app.get('/products', productController().index)
     app.get('/products/:id', productController().show)
+    app.get('/addproduct', admin, productController().addProductPage)
+    app.post('/addproduct', admin, productController().addProduct)
 
     app.post('/orders', auth, orderController().store)
     app.get('/customer/orders', auth, orderController().index)
@@ -35,11 +37,11 @@ function initRoutes(app) {
 
     app.get('/announcements', announcementController().index)
     app.get('/announcements/:id', announcementController().show)
-    app.get('/addannouncement', announcementController().addAnnouncePage)
-    app.post('/addannouncement', announcementController().addAnnounce)
+    app.get('/addannouncement', admin, announcementController().addAnnouncePage)
+    app.post('/addannouncement', admin, announcementController().addAnnounce)
 
-    app.get('/admin/orders', adminOrderController().index)
-    app.post('/admin/order/status', statusController().update)
+    app.get('/admin/orders', admin, adminOrderController().index)
+    app.post('/admin/order/status', admin, statusController().update)
 }
 
 module.exports = initRoutes

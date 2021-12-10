@@ -45,6 +45,16 @@ section.hero {
     }
 }
 
+.add-announcement {
+    background: $primary;
+    transition: $smooth;
+    position: absolute;
+    right: 150px;
+    &:hover {
+        background: $primary-hover;
+    }
+}
+
 .btn-primary {
     background: $primary;
     transition: $smooth;

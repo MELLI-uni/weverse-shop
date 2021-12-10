@@ -17,11 +17,11 @@
         <% for (let i = 0; i < 8; i++) { %>
             <a class="product" href="/products/<%= merch[i]._id %>">
                 <div class="w-64">
-                    <img class="h-40 mb-4 mx-auto" src="/img/<%= merch[i].image %>" alt="">
+                    <img class="w-60 mb-4 mx-auto" src="/img/<%= merch[i].image %>" alt="">
                     <div class="text-center">
                         <h2 class="font-bold text-lg"><%= merch[i].name %></h2>
                         <div class="flex items-center justify-around mt-1">
-                            <span class="text-lg">$<%= merch[i].price %></span>
+                            <span class="text-lg">$<%= merch[i].price.toFixed(2) %></span>
                         </div>
                     </div>
                 </div>

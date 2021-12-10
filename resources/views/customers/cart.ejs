@@ -12,10 +12,9 @@
                 <img class="w-24" src="/img/<%= merch.item.image %>" alt="">
                 <div class="flex-1 ml-4">
                     <h1><%= merch.item.name %></h1>
-                    <span><%= merch.item.size %></span>
                 </div>
                 <span class="flex-1"><%= merch.qty %> Cts</span>
-                <span class="font-bold text-lg">$<%= merch.item.price * merch.qty %></span>
+                <span class="font-bold text-lg">$<%= merch.item.price.toFixed(2) * merch.qty %></span>
             </div>
             <% } %>
         </div>
@@ -23,7 +22,7 @@
         <div class="text-right py-4">
             <div>
                 <span class="text-lg font-bold">Total Amount:</span>
-                <span class="amount text-2xl font-bold ml-2">$<%= session.cart.totalPrice %></span>
+                <span class="amount text-2xl font-bold ml-2">$<%= session.cart.totalPrice.toFixed(2) %></span>
             </div>
 
             <% if(user) { %>
