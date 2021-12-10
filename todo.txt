@@ -1,17 +1,15 @@
-Updated: 12/08/2021
+Updated: 12/09/2021
 
 [-] Admin
-    [-] Admin view table for 'fan' orders
     [-] Admin can upload new announcements
-        [-] Easy to use interface
     [-] Admin can add item
         [-] Easy interface (possibly blog like type where admin can easily add 'categories')
             [-] Categories for items?????
 [-] Announcements
-    [-] Indiv page with object id as extension
-    [-] Auto most recent three or five on display on home
-    [-] Announcement slot on homepage
-[-] Order tracker
+    [-] Display announcement number on announcement page
+    [-] Display 15 annoucement per page
+[-] Products
+    [-] Gray out the 'Add to Cart' button on product page when quntity = 0
 
 Want To Do:
 [-] Select different artists (but how?????)

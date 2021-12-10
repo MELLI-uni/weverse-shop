@@ -49,8 +49,8 @@ export function initAdmin(socket) {
                                     Placed</option>
                                 <option value="confirmed" ${ order.status === 'confirmed' ? 'selected' : '' }>
                                     Confirmed</option>
-                                <option value="printed" ${ order.status === 'printed' ? 'selected' : '' }>
-                                    Printed</option>
+                                <option value="prepared" ${ order.status === 'prepared' ? 'selected' : '' }>
+                                    Prepared</option>
                                 <option value="delivered" ${ order.status === 'delivered' ? 'selected' : '' }>
                                     Delivered
                                 </option>
@@ -79,4 +79,16 @@ export function initAdmin(socket) {
         `
         }).join('')
     }
+
+    socket.on('orderPlaced', (order) => {
+        new Noty({
+            type: 'success',
+            timeout: 1000,
+            text: 'New Order Placed', 
+            progressBar: false,
+        }).show();
+        orders.unshift(order)
+        orderTableBody.innerHTML = ''
+        orderTableBody.innerHTML = generateMarkup(orders)
+    })
 }

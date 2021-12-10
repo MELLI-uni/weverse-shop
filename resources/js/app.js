@@ -40,12 +40,10 @@ if(alertMsg) {
     }, 2000)
 }
 
-initAdmin()
-
 let statuses = document.querySelectorAll('.status_line')
 let hiddenInput = document.querySelector('#hiddenInput')
 let order = hiddenInput ? hiddenInput.value : null
-console.log(order)
+order = JSON.parse(order)
 let time = document.createElement('small')
 
 function updateStatus(order) {
@@ -55,19 +53,46 @@ function updateStatus(order) {
     })
     let stepCompleted = true;
     statuses.forEach((status) => {
-        let dataProp = status.dataset.status
-        if(stepCompleted) {
+       let dataProp = status.dataset.status
+       if(stepCompleted) {
             status.classList.add('step-completed')
-        }
-        if(dataProp === order.status) {
+       }
+       if(dataProp === order.status) {
             stepCompleted = false
-            time.innerText = moment(order.updatedAt, 'DD/MM/YYYY').format('LL')
+            time.innerText = moment(order.updatedAt).format("MM.DD.YYYY")
             status.appendChild(time)
-            if(status.nextElementSibling) {
-                status.nextElementSibling.classList.add('current')
-            }
-        }
+
+           if(status.nextElementSibling) {
+            status.nextElementSibling.classList.add('current')
+           }
+       }
     })
 }
 
 updateStatus(order);
+
+let socket = io()
+initAdmin(socket)
+
+if(order) {
+    socket.emit('join', `order_${order._id}`)
+}
+
+let adminAreaPath = window.location.pathname;
+console.log(adminAreaPath)
+if(adminAreaPath.includes('admin')){
+    socket.emit('join', 'adminRoom')
+}
+
+socket.on('orderUpdated', () => {
+    const updatedOrder = { ...order }
+    updatedOrder.updatedAt = moment().format()
+    updatedOrder.status = data.status
+    updateStatus(updatedOrder)
+    new Noty({
+        type: 'success',
+        timeout: 1000,
+        text: 'Order updated',
+        progressBar: false,
+    }).show();
+})
