@@ -10,6 +10,7 @@ function productController() {
 
         async show(req, res) {
             const product = await Product.findById(req.params.id)
+            console.log(product)
             return res.render('singleProduct', { product: product })
         }
     }

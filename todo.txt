@@ -10,6 +10,7 @@ Updated: 12/09/2021
     [-] Display 15 annoucement per page
 [-] Products
     [-] Gray out the 'Add to Cart' button on product page when quntity = 0
+[-] Stripe (PAY WITH CREDIT CARD)
 
 Want To Do:
 [-] Select different artists (but how?????)
@@ -18,7 +19,6 @@ Want To Do:
 [-] Different currency (won & yen)
 [-] Limited number of purchase for some people
     [-] Membership status
-[-] Prettier log-in thing (maybe maybe maybe)
 [-] Recently Viewed section
 [-] 'Super' admin (aka 'Weverse')
     [-] Announcements by weverse to all channels
