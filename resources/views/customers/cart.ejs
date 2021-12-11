@@ -1,5 +1,4 @@
 <section class="cart py-16">
-
     <% if(session.cart) { %>
     <div class="order container mx-auto w-1/2">
         <div class = "flex items-center border-b border-gray-300 pb-4">
@@ -14,7 +13,12 @@
                     <h1><%= merch.item.name %></h1>
                 </div>
                 <span class="flex-1"><%= merch.qty %> Cts</span>
-                <span class="font-bold text-lg">$<%= merch.item.price.toFixed(2) * merch.qty %></span>
+                <span class="font-bold text-lg">$<%= (merch.item.price * merch.qty).toFixed(2) %></span>
+    
+                <button data-merch="<%= JSON.stringify(merch) %>" class="delete-from-cart ml-12">
+                    <a href="/cart"><i class="las la-times"></i></a>
+                </button>
+
             </div>
             <% } %>
         </div>
@@ -27,13 +31,14 @@
 
             <% if(user) { %>
             <div>
-                <form action="/orders" method="POST" class="mt-12">
+                <a href="/checkout" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Checkout</a>
+                <!-- <form action="/orders" method="POST" class="mt-12">
                     <input name="phone" class="border border-gray-400 p-2 w-1/2 mb-4" type="text" placeholder="Phone Number">
                     <input name="address" class="border border-gray-400 p-2 w-1/2" type="text" placeholder="Address">
                     <div>
-                        <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6" type="submit">Order Now</button>
+                        <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6" type="submit">Checkout</button>
                     </div>
-                </form>
+                </form> -->
             </div>
             <% } else { %>
             <a href="/login" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Login to continue</a>

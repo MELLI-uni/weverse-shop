@@ -25,6 +25,7 @@ function initRoutes(app) {
 
     app.get('/cart', cartController().cart)
     app.post('/update-cart', cartController().update)
+    app.post('/delete-cart', cartController().delete)
 
     app.get('/products', productController().index)
     app.get('/products/:id', productController().show)
@@ -34,6 +35,8 @@ function initRoutes(app) {
     app.post('/orders', auth, orderController().store)
     app.get('/customer/orders', auth, orderController().index)
     app.get('/customer/orders/:id', auth, orderController().show)
+
+    app.get('/checkout', cartController().checkout)
 
     app.get('/announcements', announcementController().index)
     app.get('/announcements/:id', announcementController().show)

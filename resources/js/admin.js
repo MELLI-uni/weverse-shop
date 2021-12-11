@@ -21,12 +21,12 @@ export function initAdmin(socket) {
 
     function renderItems(items) {
         let parsedItems = Object.values(items)
-        return parsedItems.map((menuItem) => {
+        return parsedItems.map((productItem) => {
             return `
-                <p>${ menuItem.item.name } - ${ menuItem.qty } pcs </p>
+                <p>${ productItem.item.name } - ${ productItem.qty } pcs </p>
             `
         }).join('')
-      }
+    }
 
     function generateMarkup(orders) {
         return orders.map(order => {
@@ -37,7 +37,14 @@ export function initAdmin(socket) {
                     <div>${ renderItems(order.items) }</div>
                 </td>
                 <td class="border px-4 py-2">${ order.customerId.name }</td>
-                <td class="border px-4 py-2">${ order.address }</td>
+                <td class="border px-4 py-2">
+                    ${ order.address.address }<br>
+                    ${ order.address.addressSecond ? order.address.addressSecond + '<br>' : '' }
+                    ${ order.address.city }<br>
+                    ${ order.address.state }<br>
+                    ${ order.address.postalCode }<br>
+                    ${ order.address.number }
+                </td>
                 <td class="border px-4 py-2">
                     <div class="inline-block relative w-64">
                         <form action="/admin/order/status" method="POST">
@@ -70,10 +77,7 @@ export function initAdmin(socket) {
                     </div>
                 </td>
                 <td class="border px-4 py-2">
-                    ${ moment(order.createdAt).format('hh:mm A') }
-                </td>
-                <td class="border px-4 py-2">
-                    ${ order.paymentStatus ? 'paid' : 'Not paid' }
+                    ${ moment(order.createdAt).format("MM.DD.YYYY") }
                 </td>
             </tr>
         `

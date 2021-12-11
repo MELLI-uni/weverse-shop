@@ -1,0 +1,110 @@
+<section class="checkout py-16">
+    <% if(session.cart) { %>
+    <div class="checkout container mx-auto w-1/2">
+        <div class = "flex items-center border-b border-gray-300 pb-4">
+            <img src="/img/cart-black.png" alt="">
+            <h1 class="font-bold ml-4 text-2xl">Checkout</h1>
+        </div>
+
+        <div class="flex pt-4">
+            <h1 class="text-xl">Your Order</h1>
+        </div>
+
+        <div class="product-list border-b border-gray-300 pb-2">
+            <% for(let merch of Object.values(session.cart.items)) { %>
+            <div class="flex items-center py-4">
+                <img class="w-24" src="/img/<%= merch.item.image %>" alt="">
+                <div class="flex-1 ml-4">
+                    <h1><%= merch.item.name %></h1>
+                </div>
+                <span class="flex-1"><%= merch.qty %> Cts</span>
+                <span class="font-bold text-lg">$<%= (merch.item.price * merch.qty).toFixed(2) %></span>
+            </div>
+            <% } %>
+        </div>
+
+        <form action="/orders" method="POST" class="pt-4">
+            <div class = "flex items-center pb-2">
+                <h1 class="text-xl">Shipping Address</h1>
+            </div>
+
+            <div class="address-list border-b border-gray-300 pb-2">
+                <input 
+                    name="addressFirst"
+                    class="appearance-none w-full py-2 text-gray-700 leading-tight" 
+                    id="addressFirst" type="text" placeholder="Address">
+
+                <input 
+                    name="addressSecond"
+                    class="appearance-none w-full py-2 text-gray-700 leading-tight" 
+                    id="addressSecond" type="text" placeholder="Detailed address (Option)">
+                
+                <input 
+                    name="city"
+                    class="appearance-none w-full py-2 text-gray-700 leading-tight" 
+                    id="city" type="text" placeholder="City">
+
+                <input 
+                    name="state"
+                    class="appearance-none w-full py-2 text-gray-700 leading-tight" 
+                    id="state" type="text" placeholder="State, Province, or Region">
+
+                <input 
+                    name="postalcode"
+                    class="appearance-none w-full py-2 text-gray-700 leading-tight" 
+                    id="postalcode" type="text" placeholder="Postal Code(5-digit ZIP code)">
+
+                <input 
+                    name="number"
+                    class="appearance-none w-full py-2 text-gray-700 leading-tight" 
+                    id="number" type="text" placeholder="Phone Number">
+            </div>
+
+            <div class="flex items-center pt-4 pb-2">
+                <h1 class="text-xl">Customer</h1>
+            </div>
+
+            <div class="address-list border-b border-gray-300 pb-4">
+                <span class="text-md">
+                    <%= user.name %><br>
+                    <%= user.email %><br>
+                    <%= user.number %><br>
+                </span>
+            </div>
+
+            <div class="flex items-center pt-4 pb-2">
+                <h1 class="text-xl">Payment</h1>
+            </div>
+
+            <div class=" pb-2">
+                <span class="text-bold text-md">Card Number</span>
+            </div>
+            <div class="pb-2">
+                <span class="text-bold text-md">Name on Card</span>
+            </div>
+            <div class="address-list border-b border-gray-300 pb-4">
+                <span class="text-bold text-md">Expiration Date</span>
+            </div>
+
+            <div class = "flex items-center border-gray-300 pt-4 pb-4">
+                <h1 class="text-xl">Order Summary</h1>
+            </div>
+
+            <div class="flex justify-between pb-2">
+                <span class="text-md">Subtotal (<%= session.cart.totalQty %> items)</span>
+                <span class="text-md">$ <%= session.cart.totalPrice %></span>
+            </div>
+            
+            <div class="flex justify-between pb-4">
+                <span class="text-bold text-lg">Grand Total</span>
+                <span class="text-bold text-lg">$ <%= session.cart.totalPrice %></span>
+            </div>
+
+            <div>
+                <button class="btn-primary py-5 w-full rounded-md text-white text-xl font-bold mt-6" type="submit">Pay $<%= session.cart.totalPrice.toFixed(2) %></button>
+            </div>
+        </form>
+    </div>
+    <% } %>
+    <!-- This is a checkout page -->
+</section>

@@ -1,6 +1,7 @@
 const User = require('../../models/user')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
+
 function authController() {
     const _getRedirectUrl = (req) => {
         return req.user.role === 'admin' ? '/admin/orders' : '/customer/orders'
@@ -10,6 +11,7 @@ function authController() {
         login(req, res) {
             res.render('auth/login')
         },
+
         postLogin(req, res, next) {
             const { email, password }   = req.body
             // Validate request 
@@ -42,11 +44,12 @@ function authController() {
         },
 
         async postRegister(req, res) {
-            const { name, email, password }   = req.body
+            const { name, number, email, password }   = req.body
             // Validate request 
-            if(!name || !email || !password) {
+            if(!name || !email || !password || !number ) {
                 req.flash('error', 'All fields are required')
                 req.flash('name', name)
+                req.flash('number', number)
                 req.flash('email', email)
                 return res.redirect('/register')
             }
@@ -66,6 +69,7 @@ function authController() {
             // Create a user 
             const user = new User({
                 name,
+                number,
                 email,
                 password: hashedPassword
             })
@@ -80,8 +84,14 @@ function authController() {
         },
 
         logout(req, res) {
-          req.logout()
-          return res.redirect('/login')  
+            req.logout()
+            return res.redirect('/login')  
+        },
+
+        async show(req, res) {
+            const user = await User.findById(req.params.id)
+            console.log(user)
+            return res.render('checkout', { user: user })
         }
     }
 }

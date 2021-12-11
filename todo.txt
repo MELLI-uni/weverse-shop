@@ -1,7 +1,6 @@
 Updated: 12/09/2021
 
 [-] Admin
-    [-] Admin can upload new announcements
     [-] Admin can add item
         [-] Easy interface (possibly blog like type where admin can easily add 'categories')
             [-] Categories for items?????
@@ -10,7 +9,6 @@ Updated: 12/09/2021
     [-] Display 15 annoucement per page
 [-] Products
     [-] Gray out the 'Add to Cart' button on product page when quntity = 0
-[-] Stripe (PAY WITH CREDIT CARD)
 
 Want To Do:
 [-] Select different artists (but how?????)

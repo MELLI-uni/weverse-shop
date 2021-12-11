@@ -5,6 +5,7 @@ import moment from 'moment'
 //import { initStripe } from './stripe'
 
 let addToCart = document.querySelectorAll('.add-to-cart')
+let deleteFromCart = document.querySelectorAll('.delete-from-cart')
 let cartCounter = document.querySelector('#cartCounter')
 
 function updateCart(merch) {
@@ -30,6 +31,26 @@ addToCart.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         let merch = JSON.parse(btn.dataset.merch)
         updateCart(merch)
+    })
+})
+
+function deleteCart(merch) {
+    axios.post('/delete-cart', merch).then(res => {
+        cartCounter.innerText = res.data.totalQty
+    }).catch(err => {
+        new Noty({
+            type: 'error',
+            timeout: 1000,
+            text: 'Something went wrong in deletion',
+            progressBar: false,
+        }).show();
+    })
+}
+
+deleteFromCart.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        let merch = JSON.parse(btn.dataset.merch)
+        deleteCart(merch)
     })
 })
 

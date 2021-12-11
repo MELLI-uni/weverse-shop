@@ -23,7 +23,7 @@ nav li a {
 }
 
 section.hero {
-    background: $secondary;
+    background: $temp;
 }
 
 .size{
@@ -145,11 +145,11 @@ section.status {
 }
 
 .status-box ul li:nth-child(2) span:before {
-    content: '\f560';
+    content: '\f00c';
 }
 
 .status-box ul li:nth-child(3) span:before {
-    content: '\f818';
+    content: '\f466';
 }
 
 .status-box ul li:nth-child(4) span:before {
@@ -157,7 +157,7 @@ section.status {
 }
 
 .status-box ul li:nth-child(5) span:before {
-    content: '\f582';
+    content: '\f015';
 }
 .status-box ul li {
     position: relative;

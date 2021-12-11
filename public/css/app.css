@@ -320,7 +320,7 @@ nav li a:hover {
 }
 
 section.hero {
-  background: #fff;
+  background: #64a9d2;
 }
 
 .size {
@@ -454,11 +454,11 @@ section.status {
 }
 
 .status-box ul li:nth-child(2) span:before {
-  content: "\F560";
+  content: "\F00C";
 }
 
 .status-box ul li:nth-child(3) span:before {
-  content: "\F818";
+  content: "\F466";
 }
 
 .status-box ul li:nth-child(4) span:before {
@@ -466,7 +466,7 @@ section.status {
 }
 
 .status-box ul li:nth-child(5) span:before {
-  content: "\F582";
+  content: "\F015";
 }
 
 .status-box ul li {

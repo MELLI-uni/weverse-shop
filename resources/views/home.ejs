@@ -1,20 +1,20 @@
-<section class="hero py-16">
+<section class="hero">
     <div class="container mx-auto flex items-center justify-between">
         <div class="w-1/2">
-            <h6 class="text-lg"><em>Description</em></h6>
-            <h1 class="text-6xl font-bold">Title</h1>
-            <button class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary">View More</button>
+            <h6 class="text-lg">Go to check the Membership Kit product detail</h6>
+            <h1 class="text-6xl font-bold">TREASURE MAKER MEMBERSHIP KIT</h1>
+            <button class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary"><a href="/products/61b2d4e7953746c8ac7452c9">View More</a></button>
         </div>
         <div class="w-1/2">
-            <img src="/img/hero-temp.png" alt="">
+            <img class="w-full" src="/img/hero2.png" alt="">
         </div>
     </div>
 </section>
 
 <section class="product container mx-auto py-8">
     <h1 class="text-xl font-bold mb-8">Products</h1>
-    <div class="grid grid-cols-4 gap-x-12 gap-y-16">
-        <% for (let i = 0; i < 8; i++) { %>
+    <div class="grid grid-cols-5 gap-x-12 gap-y-16">
+        <% for (let i = 0; i < 10; i++) { %>
             <a class="product" href="/products/<%= merch[i]._id %>">
                 <div class="w-64">
                     <img class="w-60 mb-4 mx-auto" src="/img/<%= merch[i].image %>" alt="">
