@@ -7,6 +7,7 @@ import moment from 'moment'
 let addToCart = document.querySelectorAll('.add-to-cart')
 let deleteFromCart = document.querySelectorAll('.delete-from-cart')
 let cartCounter = document.querySelector('#cartCounter')
+let incinfo = document.getElementById('button')
 
 function updateCart(merch) {
     axios.post('/update-cart', merch).then(res => {
@@ -51,6 +52,12 @@ deleteFromCart.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         let merch = JSON.parse(btn.dataset.merch)
         deleteCart(merch)
+    })
+})
+
+incinfo.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        console.log('clicked')
     })
 })
 

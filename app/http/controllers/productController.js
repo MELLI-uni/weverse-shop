@@ -19,14 +19,15 @@ function productController() {
         },
 
         async addProduct(req, res) {
-            const { name, image, price, description }   = req.body
+            const { name, image, price, description, information }   = req.body
             // Validate request 
-            if(!name || !image || !price || !description) {
+            if(!name || !image || !price || !description ) {
                 req.flash('error', 'All fields are required')
                 req.flash('name', name)
                 req.flash('image', image)
                 req.flash('price', price)
-                req.flash('description', descriptio)
+                req.flash('description', description)
+                req.flash('information', information)
                 return res.redirect('/addProduct')
             }
 
@@ -34,7 +35,8 @@ function productController() {
                 name,
                 image,
                 price,
-                description
+                description,
+                information
             })
 
             product.save().then((product) => {
