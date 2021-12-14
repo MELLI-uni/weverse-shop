@@ -32,11 +32,10 @@ function initRoutes(app) {
     app.get('/addproduct', admin, productController().addProductPage)
     app.post('/addproduct', admin, productController().addProduct)
 
-    app.post('/orders', auth, orderController().store)
+    app.get('/checkout', cartController().checkout)
+    app.post('/checkout', auth, orderController().store)
     app.get('/customer/orders', auth, orderController().index)
     app.get('/customer/orders/:id', auth, orderController().show)
-
-    app.get('/checkout', cartController().checkout)
 
     app.get('/announcements', announcementController().index)
     app.get('/announcements/:id', announcementController().show)

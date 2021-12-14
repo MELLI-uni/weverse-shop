@@ -3,19 +3,19 @@
     <table class="w-full table-auto bg-white">
         <thead>
             <tr>
-                <th class="px-4 py-2 text-left">NO.</th>
+                <th class="px-4 py-2 text-center">NO.</th>
                 <th class="px-4 py-2 text-left">Title</th>
                 <th class="px-4 py-2 text-left">Date</th>
             </tr>
         </thead>
         <tbody>
-            <% announcement.forEach(function(announcement) { %>
+            <% for(let i = 0; i < count; i++) { %>
                 <tr>
-                    <td class="px-4 py-2 text-left">blah</td>
-                    <td class="px-4 py-2 text-left"><a class="announce" href="/announcements/<%= announcement._id %>"><%= announcement.title %></a></td>
-                    <td class="px-4 py-2 text-left"><%= moment(announcement.createdAt).format("MM.DD.YYYY") %></td>
+                    <td class="px-4 py-2 text-center"><%= (count)-i %></td>
+                    <td class="px-4 py-2 text-left"><a class="announce" href="/announcements/<%= announcements[i]._id %>"><%= announcements[i].title %></a></td>
+                    <td class="px-4 py-2 text-left"><%= moment(announcements[i].createdAt).format("MM.DD.YYYY") %></td>
                 </tr>
-            <% }) %>
+            <% } %>
         </tbody>
     </table>
     <div class="py-4">

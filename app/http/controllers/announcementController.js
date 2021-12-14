@@ -6,8 +6,8 @@ const moment = require('moment')
 function announcementController() {
     return {
         async index(req, res) {
-            const announcement = await Announcement.find().sort( { createdAt: -1 } )
-            return res.render('announcements', { announcement: announcement, moment: moment })
+            const announcements = await Announcement.find().sort( { createdAt: -1 } )
+            return res.render('announcements', { announcements: announcements, count: announcements.length, moment: moment })
         },
 
         async show(req, res) {

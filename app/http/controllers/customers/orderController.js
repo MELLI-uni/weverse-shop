@@ -5,14 +5,15 @@ const moment = require('moment')
 function orderController() {
     return {
         store(req, res) {
-            const { addressFirst, addressSecond, city, state, postalCode, number } = req.body
-            if( !addressFirst || !city || !state || !postalCode || !number ) {
+            const { addressFirst, addressSecond, city, state, zipcode, phone, cardnumber, cardname, carddate } = req.body
+            if( !addressFirst || !city || !state || !zipcode || !phone ) {
                 req.flash('error', 'All fields are required')
                 req.flash('addressFirst', addressFirst)
-                req.flash('city', city)
-                req.flash('state', state)
-                req.flash('postalCode', postalCode)
-                req.flash('number', number)
+                return res.redirect('/checkout')
+            }
+
+            if( !cardnumber || !cardname || !carddate ) {
+                req.flash('error', 'All fields are required')
                 return res.redirect('/checkout')
             }
 
@@ -20,16 +21,19 @@ function orderController() {
                 customerId: req.user._id,
                 items: req.session.cart.items,
                 address: {
-                    address: addressFirst,
-                    addressSecond: addressSecond,
-                    city: city,
-                    state: state,
-                    postalCode: postalCode,
-                    number: number
-                }
+                    addressFirst,
+                    addressSecond,
+                    city,
+                    state,
+                    zipcode,
+                    phone
+                },
+                payment: {
+                    cardnumber,
+                    cardname, 
+                    carddate
+                },
             })
-
-            console.log(order)
 
             order.save().then(result => {
                 Order.populate(result, { path: 'customerId' }, (err, placedOrder) => {
@@ -42,7 +46,7 @@ function orderController() {
                 }) 
             }).catch(err => {
                 req.flash('error', 'Something went wrong')
-                return res.redirect('/cart')
+                return res.redirect('/checkout')
             })
         },
 

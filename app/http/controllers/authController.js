@@ -75,7 +75,6 @@ function authController() {
             })
 
             user.save().then((user) => {
-                // Login
                 return res.redirect('/')
             }).catch(err => {
                 req.flash('error', 'Something went wrong')
@@ -85,6 +84,7 @@ function authController() {
 
         logout(req, res) {
             req.logout()
+            delete req.session.cart
             return res.redirect('/login')  
         },
 

@@ -32,13 +32,6 @@
             <% if(user) { %>
             <div>
                 <a href="/checkout" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Checkout</a>
-                <!-- <form action="/orders" method="POST" class="mt-12">
-                    <input name="phone" class="border border-gray-400 p-2 w-1/2 mb-4" type="text" placeholder="Phone Number">
-                    <input name="address" class="border border-gray-400 p-2 w-1/2" type="text" placeholder="Address">
-                    <div>
-                        <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6" type="submit">Checkout</button>
-                    </div>
-                </form> -->
             </div>
             <% } else { %>
             <a href="/login" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Login to continue</a>

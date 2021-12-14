@@ -6,6 +6,10 @@
             <h1 class="font-bold ml-4 text-2xl">Checkout</h1>
         </div>
 
+        <% if(messages.error) { %>
+            <span class="text-red-500 text-sm"><%= messages.error %></span>
+        <% } %>
+
         <div class="flex pt-4">
             <h1 class="text-xl">Your Order</h1>
         </div>
@@ -23,7 +27,7 @@
             <% } %>
         </div>
 
-        <form action="/orders" method="POST" class="pt-4">
+        <form action="/checkout" method="POST" class="mt-12">
             <div class = "flex items-center pb-2">
                 <h1 class="text-xl">Shipping Address</h1>
             </div>
@@ -38,8 +42,8 @@
                     name="addressSecond"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
                     id="addressSecond" type="text" placeholder="Detailed address (Option)">
-                
-                <input 
+
+                    <input 
                     name="city"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
                     id="city" type="text" placeholder="City">
@@ -49,15 +53,15 @@
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
                     id="state" type="text" placeholder="State, Province, or Region">
 
-                <input 
-                    name="postalcode"
+                    <input 
+                    name="zipcode"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
-                    id="postalcode" type="text" placeholder="Postal Code(5-digit ZIP code)">
+                    id="zipcode" type="text" placeholder="Postal Code">
 
                 <input 
-                    name="number"
+                    name="phone"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
-                    id="number" type="text" placeholder="Phone Number">
+                    id="phone" type="text" placeholder="Phone Number">
             </div>
 
             <div class="flex items-center pt-4 pb-2">
@@ -77,13 +81,22 @@
             </div>
 
             <div class=" pb-2">
-                <span class="text-bold text-md">Card Number</span>
+                <input 
+                    name="cardnumber"
+                    class="appearance-none w-full py-2 text-gray-700 leading-tight" 
+                    id="cardnumber" type="text" placeholder="Card Number">
             </div>
             <div class="pb-2">
-                <span class="text-bold text-md">Name on Card</span>
+                <input 
+                    name="cardname"
+                    class="appearance-none w-full py-2 text-gray-700 leading-tight" 
+                    id="cardname" type="text" placeholder="Name on Card">
             </div>
             <div class="address-list border-b border-gray-300 pb-4">
-                <span class="text-bold text-md">Expiration Date</span>
+                <input 
+                    name="carddate"
+                    class="appearance-none w-full py-2 text-gray-700 leading-tight" 
+                    id="carddate" type="text" placeholder="Expiration Date">
             </div>
 
             <div class = "flex items-center border-gray-300 pt-4 pb-4">
@@ -103,7 +116,9 @@
             <div>
                 <button class="btn-primary py-5 w-full rounded-md text-white text-xl font-bold mt-6" type="submit">Pay $<%= session.cart.totalPrice.toFixed(2) %></button>
             </div>
+
         </form>
+
     </div>
     <% } %>
     <!-- This is a checkout page -->

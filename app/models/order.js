@@ -8,9 +8,9 @@ const orderSchema = new Schema({
                 required: true
                 },
     items: { type: Object, required: true },
-    phone: { type: String, required: true},
+    //phone: { type: String, required: true},
     address: { type: Object, required: true},
-    paymentType: { type: Object, default: 'card'},
+    payment: { type: Object, required: true},
     status: { type: String, default: 'order_placed'},
 }, { timestamps: true })
 
