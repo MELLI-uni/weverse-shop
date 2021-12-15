@@ -43,6 +43,7 @@ function initRoutes(app) {
     app.post('/addannouncement', admin, announcementController().addAnnounce)
 
     app.get('/admin/orders', admin, adminOrderController().index)
+    app.get('/admin/orders/:id', auth, adminOrderController().show)
     app.post('/admin/order/status', admin, statusController().update)
 }
 

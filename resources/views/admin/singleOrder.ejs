@@ -1,0 +1,77 @@
+<section class="status">
+    <div class="container mx-auto">
+
+        <div class="status-box w-full lg:w-2/3 mx-auto">
+            <div class="flex items-center justify-between pb-2">
+                <h1 class="text-xl font-bold">Order Details</h1>
+                <h6 class="bg-white py-1 rounded-full px-4 text-green-600 text-xs"><%=
+                    order._id %></h6>
+            </div>
+
+            <div class="product-list pb-2">
+                <div>
+                    <h1>Order Placed On: 
+                        <%= moment(order.createdAt).format("MM/DD/YYYY hh:mm") %>
+                    </h1>
+                    <h1 class="text-green-400">
+                        <% if(order.status === 'order_placed') { %>
+                            Order Placed
+                        <% } else if(order.status === 'confirmed') { %>
+                            Order Confirmed
+                        <% } else if(order.status === 'prepared') { %>
+                            Prepared
+                        <% } else if(order.status === 'delivered') { %>
+                            Out for Delivery
+                        <% } else if(order.status === 'completed') { %>
+                            Delivered
+                        <% } %>
+                    </h1>
+                </div>
+            </div>
+
+            
+            <div class="product-list border-t border-b border-gray-300 pb-2">
+                <% for(let purchased of Object.values(order.items)) { %>
+                    <div class="flex items-center justify-between py-4">
+                        <img class="w-24" src="/img/<%= purchased.item.image %>" alt="">
+                        <div class="flex-1 ml-4">
+                            <h1><%= purchased.item.name %></h1>
+                        </div>
+                        <span class=""><%= purchased.qty %> Cts</span>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="flex items-center justify-between pt-4 pb-2">
+                <h1 class="text-xl font-bold">Customer Information</h1>
+            </div>
+
+            <div class="customer-info-list pb-12">
+                <div class="pb-2">
+                    <h1 class="font-bold">Name: </h1>
+                    <h1><%= user.name %></h1>
+                </div>
+                <div class="pb-2">
+                    <h1 class="font-bold">Phone: </h1>
+                    <h1><%= order.address.phone %></h1>
+                </div>
+                <div class="pb-2">
+                    <h1 class="font-bold">Deliver Address: </h1>
+                    <h1>
+                        <%= order.address.addressFirst %><br>
+                        <% if(order.address.addressSecond) { %>
+                            <%= order.address.addressSecond %><br>
+                        <% } %>
+                        <%= order.address.city %><br>
+                        <%= order.address.state %> <%= order.address.zipcode %>
+                    </h1>
+                </div>
+                <div>
+                    <h1 class="font-bold">Payment Information: </h1>
+                    <h1>
+                        <%= order.payment.cardnumber %></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -6,14 +6,17 @@ function orderController() {
     return {
         store(req, res) {
             const { addressFirst, addressSecond, city, state, zipcode, phone, cardnumber, cardname, carddate } = req.body
-            if( !addressFirst || !city || !state || !zipcode || !phone ) {
+            if( !addressFirst || !city || !state || !zipcode || !phone || !cardnumber || !cardname || !carddate ) {
                 req.flash('error', 'All fields are required')
                 req.flash('addressFirst', addressFirst)
-                return res.redirect('/checkout')
-            }
-
-            if( !cardnumber || !cardname || !carddate ) {
-                req.flash('error', 'All fields are required')
+                req.flash('addressSecond', addressSecond)
+                req.flash('city', city)
+                req.flash('state', state)
+                req.flash('zipcode', zipcode)
+                req.flash('phone', phone)
+                req.flash('cardnumber', cardnumber)
+                req.flash('cardname', cardname)
+                req.flash('carddate', carddate)
                 return res.redirect('/checkout')
             }
 
@@ -61,7 +64,7 @@ function orderController() {
             const order = await Order.findById(req.params.id)
 
             if(req.user._id.toString() === order.customerId.toString()) {
-                return res.render('customers/singleOrder', { order })
+                return res.render('customers/singleOrder', { order, moment })
             }
             return  res.redirect('/')
         }

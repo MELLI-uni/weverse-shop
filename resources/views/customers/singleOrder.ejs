@@ -1,13 +1,39 @@
 <section class="status">
     <div class="container mx-auto">
+
         <div class="status-box w-full lg:w-2/3 mx-auto">
-            <div class="flex items-center justify-between mb-12">
-                <h1 class="text-xl font-bold">Track delivery status</h1>
+            <div class="flex items-center justify-between pb-2">
+                <h1 class="text-xl font-bold">Order Details</h1>
                 <h6 class="bg-white py-1 rounded-full px-4 text-green-600 text-xs"><%=
                     order._id %></h6>
+            </div>
+
+            <div class="product-list pb-2">
+                <div>
+                    <h1>Order Placed: 
+                        <%= moment(order.createdAt).format("MM/DD/YYYY hh:mm") %>
+                    </h1>
+                </div>
+            </div>
+
+            
+            <div class="product-list border-t border-b border-gray-300 pb-2">
+                <% for(let purchased of Object.values(order.items)) { %>
+                    <div class="flex items-center justify-between py-4">
+                        <img class="w-24" src="/img/<%= purchased.item.image %>" alt="">
+                        <div class="flex-1 ml-4">
+                            <h1><%= purchased.item.name %></h1>
+                        </div>
+                        <span class=""><%= purchased.qty %> Cts</span>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="flex items-center justify-between mb-12 pt-2">
+                <h1 class="text-xl font-bold">Track delivery status</h1>
                 <input id="hiddenInput" type="hidden" value="<%= JSON.stringify(order) %>">
             </div>
-            <ul>
+            <ul class="mb-20">
                 <li class="status_line text-sm md:text-xl pb-16" data-status="order_placed"><span>Order Placed</span></li>
                 <li class="status_line text-sm md:text-xl pb-16" data-status="confirmed"><span>Order Confirmed</span></li>
                 <li class="status_line text-sm md:text-xl pb-16" data-status="prepared"><span>Prepared</span></li>

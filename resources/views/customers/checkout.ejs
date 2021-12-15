@@ -6,8 +6,8 @@
             <h1 class="font-bold ml-4 text-2xl">Checkout</h1>
         </div>
 
-        <% if(messages.error) { %>
-            <span class="text-red-500 text-sm"><%= messages.error %></span>
+        <% if(messages.erroraddress) { %>
+            <span class="text-red-500 text-sm"><%= messages.erroraddress %></span>
         <% } %>
 
         <div class="flex pt-4">
@@ -34,32 +34,32 @@
 
             <div class="address-list border-b border-gray-300 pb-2">
                 <input 
-                    name="addressFirst"
+                    name="addressFirst" value="<%= messages.addressFirst %>"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
                     id="addressFirst" type="text" placeholder="Address">
 
                 <input 
-                    name="addressSecond"
+                    name="addressSecond" value="<%= messages.addressSecond %>"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
                     id="addressSecond" type="text" placeholder="Detailed address (Option)">
 
                     <input 
-                    name="city"
+                    name="city" value="<%= messages.city %>"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
                     id="city" type="text" placeholder="City">
 
                 <input 
-                    name="state"
+                    name="state" value="<%= messages.state %>"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
                     id="state" type="text" placeholder="State, Province, or Region">
 
                     <input 
-                    name="zipcode"
+                    name="zipcode" value="<%= messages.zipcode %>"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
                     id="zipcode" type="text" placeholder="Postal Code">
 
                 <input 
-                    name="phone"
+                    name="phone" value="<%= messages.phone %>"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
                     id="phone" type="text" placeholder="Phone Number">
             </div>
@@ -82,19 +82,19 @@
 
             <div class=" pb-2">
                 <input 
-                    name="cardnumber"
+                    name="cardnumber" value="<%= messages.cardnumber %>"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
                     id="cardnumber" type="text" placeholder="Card Number">
             </div>
             <div class="pb-2">
                 <input 
-                    name="cardname"
+                    name="cardname" value="<%= messages.cardname %>"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
                     id="cardname" type="text" placeholder="Name on Card">
             </div>
             <div class="address-list border-b border-gray-300 pb-4">
                 <input 
-                    name="carddate"
+                    name="carddate" value="<%= messages.carddate %>"
                     class="appearance-none w-full py-2 text-gray-700 leading-tight" 
                     id="carddate" type="text" placeholder="Expiration Date">
             </div>

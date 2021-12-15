@@ -59,6 +59,7 @@ function authController() {
                 if(result) {
                     req.flash('error', 'Email already taken')
                     req.flash('name', name)
+                    req.flash('number', number)
                     req.flash('email', email) 
                     return res.redirect('/register')
                 }
